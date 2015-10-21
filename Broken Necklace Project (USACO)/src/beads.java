@@ -10,7 +10,7 @@ public class beads {
 
 	public static void main (String [] args) throws IOException
 	{
-		Scanner read = new Scanner(new BufferedReader (new FileReader ("beads.txt")));
+		Scanner read = new Scanner(new BufferedReader (new FileReader ("beads.in")));
 		PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("beads.out")));
 		
 		int length = read.nextInt();
@@ -24,15 +24,16 @@ public class beads {
 			String reversed = new StringBuilder(cutNecklace).reverse().toString();
 			int cutNum = countBeads(cutNecklace, 'w', 0);
 			int reverseNum = countBeads(reversed, 'w', 0);
-			if (cutNum != reverseNum && cutNum+reverseNum > maxBeads)
+			if (cutNum != length && cutNum+reverseNum > maxBeads)
 				maxBeads = cutNum+reverseNum;
-			else if (cutNum == reverseNum && cutNum+reverseNum > maxBeads)
+			else if (cutNum == length && cutNum+reverseNum > maxBeads)
 				maxBeads = cutNum;
 		}
+		if (maxBeads > length)
+			maxBeads = length;
 		out.println(maxBeads);
 		out.close();
 		read.close();
-		System.out.println(maxBeads);
 		System.exit(0);
 	}
 	
