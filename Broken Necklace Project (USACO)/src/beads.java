@@ -10,10 +10,11 @@ public class beads {
 
 	public static void main (String [] args) throws IOException
 	{
-		Scanner read = new Scanner(new BufferedReader (new FileReader ("beads.in")));
+		Scanner read = new Scanner(new BufferedReader (new FileReader ("beads.txt")));
 		PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("beads.out")));
 		
 		int length = read.nextInt();
+		read.nextLine();
 		String necklace = read.nextLine().trim();
 		int maxBeads = 0;
 		
@@ -31,6 +32,7 @@ public class beads {
 		out.println(maxBeads);
 		out.close();
 		read.close();
+		System.out.println(maxBeads);
 		System.exit(0);
 	}
 	
